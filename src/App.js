@@ -7,21 +7,17 @@ import PasswordGenerator from "./pages/PasswordGenerator.js";
 import NoPage from "./pages/NoPage.js";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-class App extends React.component {
-    render() {
-        return (
-            <BrowserRouter>
-                <Routes>
-                    <Route path="/" element={<Layout />}>
-                        <Route index element={<Home/>} />
-                        <Route path="about" element={<About/>} />
-                        <Route path="passwordgenerator" element={<PasswordGenerator/>} />
-                        <Route path="*" element={<NoPage/>} />
-                    </Route>
-                </Routes>
-            </BrowserRouter>
-        );
-    }
+export default function App() {
+    return (
+        <BrowserRouter>
+            <Routes>
+                <Route path="/" element={<Layout />}>
+                    <Route index element={<Home />} />
+                    <Route path="about" element={<About />} />
+                    <Route path="passwordgenerator" element={<PasswordGenerator />} />
+                    <Route path="*" element={<NoPage />} />
+                </Route>
+            </Routes>
+        </BrowserRouter>
+    );
 }
-
-export default App;
