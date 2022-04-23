@@ -1,25 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import './CSS/App.css';
+import Layout from "./pages/Layout.js";
+import Home from "./pages/Home.js";
+import About from "./pages/About.js";
+import PasswordGenerator from "./pages/PasswordGenerator.js";
+import NoPage from "./pages/NoPage.js";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends React.component {
+    render() {
+        return (
+            <BrowserRouter>
+                <Routes>
+                    <Route path="/" element={<Layout />}>
+                        <Route index element={<Home/>} />
+                        <Route path="about" element={<About/>} />
+                        <Route path="passwordgenerator" element={<PasswordGenerator/>} />
+                        <Route path="*" element={<NoPage/>} />
+                    </Route>
+                </Routes>
+            </BrowserRouter>
+        );
+    }
 }
 
 export default App;

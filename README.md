@@ -40,5 +40,5 @@ npm run start
 #### Build the app
 
 ```
-npm run package
+npm run build
 ```
