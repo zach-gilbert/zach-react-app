@@ -1,23 +1,39 @@
 import React from 'react';
 import './CSS/App.css';
-import Layout from "./pages/Layout.js";
-import Home from "./pages/Home.js";
-import About from "./pages/About.js";
-import PasswordGenerator from "./pages/PasswordGenerator.js";
-import NoPage from "./pages/NoPage.js";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Home from "./Components/Home.js";
+import About from "./Components/About.js";
+import PasswordGenerator from "./Components/PasswordGenerator.js";
+import NoPage from "./Components/NoPage.js";
+import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 
-export default function App() {
-    return (
-        <BrowserRouter>
-            <Routes>
-                <Route path="/" element={<Layout />}>
-                    <Route index element={<Home />} />
-                    <Route path="about" element={<About />} />
-                    <Route path="passwordgenerator" element={<PasswordGenerator />} />
-                    <Route path="*" element={<NoPage />} />
-                </Route>
-            </Routes>
-        </BrowserRouter>
-    );
-}
+const App = () => (
+    <BrowserRouter>
+        <Navigation />
+        <RouteContent />
+    </BrowserRouter>
+);
+
+const Navigation = () => (
+    <ul>
+        <li>
+            <Link to="/">Home</Link>
+        </li>
+        <li>
+            <Link to="/about">About</Link>
+        </li>
+        <li>
+            <Link to="/passwordgenerator">Password Generator</Link>
+        </li>
+    </ul>
+);
+
+const RouteContent = () => (
+    <Routes>
+        <Route exact path ="/" element={<Home />} />
+        <Route path ="/about" element={<About />} />
+        <Route path ="/passwordgenerator" element={<PasswordGenerator />} />
+        <Route path ="*" element={<NoPage />} />
+    </Routes>
+);
+
+export default App;
