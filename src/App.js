@@ -1,10 +1,10 @@
-import React from 'react';
+import * as React from 'react';
 import './CSS/App.css';
-import Home from "./Components/Home.js";
-import About from "./Components/About.js";
-import PasswordGenerator from "./Components/PasswordGenerator.js";
-import NoPage from "./Components/NoPage.js";
-import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
+import Home from "./components/Home.js";
+import About from "./components/About.js";
+import Password from "./components/Password.js";
+import NoPage from "./components/NoPage.js";
+import {BrowserRouter, Link, Route, Routes} from "react-router-dom";
 
 const App = () => (
     <BrowserRouter>
@@ -31,7 +31,7 @@ const RouteContent = () => (
     <Routes>
         <Route exact path ="/" element={<Home />} />
         <Route path ="/about" element={<About />} />
-        <Route path ="/passwordgenerator" element={<PasswordGenerator />} />
+        <Route path ="/passwordgenerator" element={<Password />} />
         <Route path ="*" element={<NoPage />} />
     </Routes>
 );
