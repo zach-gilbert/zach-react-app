@@ -1,6 +1,7 @@
 import * as React from 'react';
-import {generatePassword} from "../Utils/PasswordGenUtil.js";
-import wordList from "../Utils/wordlist.txt";
+import {generatePassword} from "../utils/PasswordGenUtil.js";
+import wordList from "../utils/wordlist.txt";
+import Button from '@mui/material/Button';
 
 class Password extends React.Component {
     constructor(props) {
@@ -60,10 +61,12 @@ class Password extends React.Component {
             <div>
                 <h1>Password</h1>
                 <h2>wordList = {this.state.wordList}</h2>
-                {/* Set click handler */}
-                <button onClick={this.handleClick}>
-                    Load word array
-                </button>
+                <Button
+                    variant="contained"
+                    color="success"
+                    onClick={this.handleClick}>
+                    Generate Password
+                </Button>
             </div>
         );
     }
