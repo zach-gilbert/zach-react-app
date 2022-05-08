@@ -11,6 +11,7 @@
 - Password generator designed to return an easy to remember password.
 - The app works by taking commonly used words and pairing them together to form an easy to remember password.
 - App created to practice using React and to have fun.
+- WordList derived from: [j-c-m](https://github.com/j-c-m/xkcd-password-generator)
 - Inspiration:
 ![xkcd, password](http://imgs.xkcd.com/comics/password_strength.png)
 
