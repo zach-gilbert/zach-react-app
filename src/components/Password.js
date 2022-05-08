@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {getWords} from "../Utils/PasswordGenUtil.js";
+import {generatePassword} from "../Utils/PasswordGenUtil.js";
 import wordList from "../Utils/wordlist.txt";
 
 class Password extends React.Component {
@@ -8,6 +8,7 @@ class Password extends React.Component {
         this.state = {
             wordList: null,
             totalWordList: null,
+            password: null,
         }
         this.handleClick = this.handleClick.bind(this)
     }
@@ -47,7 +48,8 @@ class Password extends React.Component {
      * called by handeClick()
      */
     selectWords() {
-        let selectedWordsArr = getWords(this.state.totalWordList, 3)
+        //let selectedWordsArr = getWords(this.state.totalWordList, 3)
+        let selectedWordsArr = generatePassword(this.state.totalWordList, 3, true, false, false)
         this.setState({
             wordList: selectedWordsArr
         })
