@@ -2,8 +2,12 @@ import * as React from 'react';
 import {generatePassword} from "../utils/PasswordGenUtil.js";
 import wordList from "../utils/wordlist.txt";
 import Button from '@mui/material/Button';
+import Checkbox from '@mui/material/Checkbox';
+import {FormControlLabel, FormGroup, FormLabel, TextField} from "@mui/material";
 
 class Password extends React.Component {
+
+    //TODO: add a drawer to project: https://mui.com/material-ui/react-drawer/
     constructor(props) {
         super(props);
         this.state = {
@@ -49,8 +53,7 @@ class Password extends React.Component {
      * called by handeClick()
      */
     selectWords() {
-        //let selectedWordsArr = getWords(this.state.totalWordList, 3)
-        let selectedWordsArr = generatePassword(this.state.totalWordList, 3, true, false, false)
+        let selectedWordsArr = generatePassword(this.state.totalWordList, 3, false, true, false)
         this.setState({
             wordList: selectedWordsArr
         })
@@ -59,8 +62,43 @@ class Password extends React.Component {
     render() {
         return (
             <div>
+                {/* Title */}
                 <h1>Password</h1>
-                <h2>wordList = {this.state.wordList}</h2>
+
+                {/* Password output */}
+                <h2>Password = {this.state.wordList}</h2>
+                <TextField
+                    id="outlined-read-only-password"
+                    label="Password"
+                    defaultValue=""
+                    InputProps={{
+                        readOnly: true,
+                    }}
+                />
+
+                {/* Select */}
+
+                {/* Checkboxes */}
+                <FormLabel component="legend">Password parameters:</FormLabel>
+                <FormGroup aria-label="position" row>
+                    <FormControlLabel
+                        control={<Checkbox />}
+                        label="Capital"
+                        labelPlacement="end"
+                    />
+                    <FormControlLabel
+                        control={<Checkbox />}
+                        label="Digits"
+                        labelPlacement="end"
+                    />
+                    <FormControlLabel
+                        control={<Checkbox />}
+                        label="Symbols"
+                        labelPlacement="end"
+                    />
+                </FormGroup>
+
+                {/* Generate password button */}
                 <Button
                     variant="contained"
                     color="success"

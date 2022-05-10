@@ -1,8 +1,3 @@
-/* Variables to be used to generate a password */
-const digits = '0123456789'
-const symbols = '!@#$%^&*()-_+=`~[]{},.<>/?'
-
-/* Functions */
 /**
  * Chooses n number of words and returns them inside an array
  *
@@ -24,7 +19,7 @@ function getWords(wordListData, numberOfWords) {
     // Iterate the number of words
     for (let i = 0; i < numberOfWords; i++) {
         //TODO: Prevent the same line number from being generated subsequent times
-        // issue where it will sometimes still generate a maxmimum of two duplicate
+        // issue where it will sometimes still generate a maximum of two duplicate
         // numbers... https://codepen.io/finnhvman/pen/oPwXRa
         randomLine = getSecureRandomNumber(min, max) // Generates a random line number
 
@@ -33,8 +28,7 @@ function getWords(wordListData, numberOfWords) {
         }
         selectedNumbers.push(randomLine)
 
-        word = wordListData[randomLine - 1]
-        console.log(word + ' - ' + randomLine)
+        word = wordListData[randomLine - 1] // select word from array of words
         selectedWordsArr.push(word) // Push the found word onto the array
     }
     console.log('selectedWordsArr: ' + selectedWordsArr)
@@ -72,29 +66,67 @@ function capitalizeWord(password) {
 }
 
 /**
+ * Adds digits to the end of the password and returns
+ *
+ * called by generatePassword()
+ *
+ * @param password
+ * @returns {string}
+ */
+function addDigits(password) {
+    console.log("addDigits() called")
+    let digits = ''
+    let numberOfDigits = getSecureRandomNumber(1, 3)
+
+    // Generate random numbers and append them to a string
+    for (let i = 0; i < numberOfDigits; i++) {
+        digits += getSecureRandomNumber(0, 9)
+    }
+
+    return password + digits
+}
+
+/**
+ * Returns password with a random symbol appended
+ * at the end of it
+ *
+ * called by generatePassword()
+ *
+ * @param password
+ * @returns {string}
+ */
+function addSymbol(password) {
+    console.log("addSymbol() called")
+    const symbols = '!@#$%^&*.?+=_-'
+    const symbolsLength = symbols.length
+
+    let symbol = symbols.charAt(getSecureRandomNumber(0, symbolsLength - 1))
+
+    return password + symbol
+}
+
+/**
  * MAIN: generate password utility
  */
 export function generatePassword(wordList, numberOfWords, isCapital, isDigit, isSymbol) {
-    //TODO: Create a minimum/maximum length feature (working theory: if the generated
-    // password is above the given length, regenerate a new password until reaches
-    // appropriate parameters)
+    console.log("generatePassword() called")
 
-    let password = null
-
-    password = getWords(wordList, numberOfWords)
+    let password = getWords(wordList, numberOfWords) // Fetches random words for the password
 
     if (isCapital) {
         password = capitalizeWord(password) // Capitalize first word of the password
     }
 
     if (isDigit) {
-        // Add digits to the end of the password
+        password = addDigits(password) // Add digits to the end of the password
     }
 
     if (isSymbol) {
-        // Add symbols in between the words, if only 1 word add symbol(s) at end after digits
+        password = addSymbol(password) // Add symbols in between the words, if only 1 word add symbol(s) at end after digits
     }
 
+    console.log("generated password: " + password)
+    console.log("typeof password: " + typeof(password))
     return password
 }
 
