@@ -11,9 +11,11 @@ class Password extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            wordList: null,
-            totalWordList: null,
-            password: null,
+            totalWordList: null, // array of all words
+            password: null, // password
+            boolCapital: false, // boolean to add capitals
+            boolDigit: false, // boolean to add digits
+            boolSymbol: false, // boolean to add symbols
         }
         this.handleClick = this.handleClick.bind(this)
     }
@@ -53,9 +55,10 @@ class Password extends React.Component {
      * called by handeClick()
      */
     selectWords() {
-        let selectedWordsArr = generatePassword(this.state.totalWordList, 3, false, true, false)
+        let selectedWordsArr = generatePassword(this.state.totalWordList, 3,
+            this.state.boolCapital, this.state.boolDigit, this.state.boolSymbol)
         this.setState({
-            wordList: selectedWordsArr
+            password: selectedWordsArr
         })
     }
 
@@ -66,7 +69,7 @@ class Password extends React.Component {
                 <h1>Password</h1>
 
                 {/* Password output */}
-                <h2>Password = {this.state.wordList}</h2>
+                <h2>Password = {this.state.password}</h2>
                 <TextField
                     id="outlined-read-only-password"
                     label="Password"
@@ -85,16 +88,31 @@ class Password extends React.Component {
                         control={<Checkbox />}
                         label="Capital"
                         labelPlacement="end"
+                        checked={this.state.boolCapital}
+                        onClick={() => {
+                            console.log("boolCapital: " + !this.state.boolCapital)
+                            this.setState({boolCapital: !this.state.boolCapital})
+                        }}
                     />
                     <FormControlLabel
                         control={<Checkbox />}
                         label="Digits"
                         labelPlacement="end"
+                        checked={this.state.boolDigit}
+                        onClick={() => {
+                            console.log("boolDigits: " + !this.state.boolDigit)
+                            this.setState({boolDigit: !this.state.boolDigit})
+                        }}
                     />
                     <FormControlLabel
                         control={<Checkbox />}
                         label="Symbols"
                         labelPlacement="end"
+                        checked={this.state.boolSymbol}
+                        onClick={() => {
+                            console.log("boolSymbol: " + !this.state.boolSymbol)
+                            this.setState({boolSymbol: !this.state.boolSymbol})
+                        }}
                     />
                 </FormGroup>
 
