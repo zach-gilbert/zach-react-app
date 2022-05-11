@@ -31,7 +31,7 @@ function getWords(wordListData, numberOfWords) {
         word = wordListData[randomLine - 1] // select word from array of words
         selectedWordsArr.push(word) // Push the found word onto the array
     }
-    console.log('selectedWordsArr: ' + selectedWordsArr)
+
     return selectedWordsArr
 }
 
@@ -53,14 +53,18 @@ function getSecureRandomNumber(min, max) {
 }
 
 /**
- * capitalizes the first word of a password
+ * Capitalizes the first letter of each word within the password
  * @param password
  * @returns {string}
  */
 function capitalizeWord(password) {
     console.log("capitalizeWord() called")
-    let firstWord = password[0]
-    password[0] = firstWord.charAt(0).toUpperCase() + firstWord.slice(1)
+
+    let word = null
+    for (let i = 0; i < password.length; i++) {
+        word = password[i]
+        password[i] = word.charAt(0).toUpperCase() + word.slice(1)
+    }
 
     return password
 }
@@ -108,25 +112,30 @@ function addSymbol(password) {
 /**
  * MAIN: generate password utility
  */
-export function generatePassword(wordList, numberOfWords, isCapital, isDigit, isSymbol) {
+export function generatePassword(wordList, numberOfWords, boolCapital, boolDigit, boolSymbol) {
     console.log("generatePassword() called")
 
     let password = getWords(wordList, numberOfWords) // Fetches random words for the password
 
-    if (isCapital) {
+    if (boolCapital) {
         password = capitalizeWord(password) // Capitalize first word of the password
     }
 
-    if (isDigit) {
+    if (boolDigit) {
         password = addDigits(password) // Add digits to the end of the password
     }
 
-    if (isSymbol) {
+    if (boolSymbol) {
         password = addSymbol(password) // Add symbols in between the words, if only 1 word add symbol(s) at end after digits
     }
 
-    console.log("generated password: " + password)
-    console.log("typeof password: " + typeof(password))
+    /* Final processing for password */
+    password = password.toString()
+    password = password.replaceAll('\r', '')
+    password = password.replaceAll(',', '')
+
+
+
     return password
 }
 
