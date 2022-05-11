@@ -6,7 +6,6 @@
  * @returns {*[]} an array of the words selected at random from the list
  */
 function getWords(wordListData, numberOfWords) {
-    console.log("getWords() called")
     let selectedWordsArr = [] // Array of selected words
     let word = '' // String of each individual word
     let randomLine = 1 // int of a line to be read

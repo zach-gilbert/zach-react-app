@@ -1,9 +1,9 @@
 import * as React from 'react';
 import {generatePassword} from "../utils/PasswordGenUtil.js";
 import wordList from "../utils/wordlist.txt";
-import Button from '@mui/material/Button';
-import Checkbox from '@mui/material/Checkbox';
-import {FormControlLabel, FormGroup, FormLabel, TextField} from "@mui/material";
+import { Button, Checkbox, FormControlLabel, FormGroup, FormLabel, IconButton, TextField } from "@mui/material";
+import ContentCopyIcon from '@mui/icons-material/ContentCopy';
+import Tooltip from '@mui/material/Tooltip';
 
 class Password extends React.Component {
 
@@ -12,7 +12,7 @@ class Password extends React.Component {
         super(props);
         this.state = {
             totalWordList: null, // array of all words
-            password: null, // password
+            password: '', // password
             boolCapital: false, // boolean to add capitals
             boolDigit: false, // boolean to add digits
             boolSymbol: false, // boolean to add symbols
@@ -62,6 +62,11 @@ class Password extends React.Component {
         })
     }
 
+    /**
+     * Render function for Password.js
+     *
+     * @returns {JSX.Element}
+     */
     render() {
         return (
             <div>
@@ -69,17 +74,22 @@ class Password extends React.Component {
                 <h1>Password</h1>
 
                 {/* Password output */}
+                {/* TODO: Increase minimum size of password, dynamically resize depending on length */}
                 <h2>Password = {this.state.password}</h2>
                 <TextField
-                    id="outlined-read-only-password"
-                    label="Password"
-                    defaultValue=""
+                    value={this.state.password}
                     InputProps={{
                         readOnly: true,
                     }}
                 />
-
-                {/* Select */}
+                {/* Copy to clipboard icon button */}
+                <Tooltip title="Copy to clipboard">
+                    <IconButton
+                        size='large'
+                        onClick={() => {navigator.clipboard.writeText(this.state.password)}}>
+                        {<ContentCopyIcon />}
+                    </IconButton>
+                </Tooltip>
 
                 {/* Checkboxes */}
                 <FormLabel component="legend">Password parameters:</FormLabel>
