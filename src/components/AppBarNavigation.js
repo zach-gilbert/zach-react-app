@@ -97,7 +97,7 @@ const NavigationDrawerLeft = () => {
         let pathURL = window.location.pathname // Gets the path URL
 
         switch (pathURL) {
-            case '/':
+            case '/zach-react-app':
                 return HOME
             case '/about':
                 return ABOUT
