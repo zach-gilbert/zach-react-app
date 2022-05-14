@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/zach-react-app/static/css/main.073c9b0a.css",
-    "main.js": "/zach-react-app/static/js/main.cd7d1bea.js",
+    "main.js": "/zach-react-app/static/js/main.d8e40911.js",
     "static/media/wordlist.txt": "/zach-react-app/static/media/wordlist.c2361cb161d98eb488af.txt",
     "index.html": "/zach-react-app/index.html",
     "main.073c9b0a.css.map": "/zach-react-app/static/css/main.073c9b0a.css.map",
-    "main.cd7d1bea.js.map": "/zach-react-app/static/js/main.cd7d1bea.js.map"
+    "main.d8e40911.js.map": "/zach-react-app/static/js/main.d8e40911.js.map"
   },
   "entrypoints": [
     "static/css/main.073c9b0a.css",
-    "static/js/main.cd7d1bea.js"
+    "static/js/main.d8e40911.js"
   ]
 }
