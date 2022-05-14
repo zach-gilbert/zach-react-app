@@ -160,7 +160,7 @@ const NavigationDrawerLeft = () => {
                 </DrawerHeader>
                 <Divider />
                 <List>
-                    <ListItemButton component={Link} to="/" onClick={() => setPage(HOME)}>
+                    <ListItemButton component={Link} to="/zach-react-app" onClick={() => setPage(HOME)}>
                         <ListItemIcon>
                             <HomeIcon />
                         </ListItemIcon>
@@ -200,7 +200,7 @@ const NavigationDrawerLeft = () => {
 
 const RouteContent = () => (
     <Routes>
-        <Route exact path ="/" element={<Home />} />
+        <Route exact path ="/zach-react-app" element={<Home />} />
         <Route path ="/about" element={<About />} />
         <Route path ="/passwordgenerator" element={<PasswordGen />} />
         <Route path ="*" element={<NoPage />} />
