@@ -97,13 +97,13 @@ const NavigationDrawerLeft = () => {
         let pathURL = window.location.pathname // Gets the path URL
 
         switch (pathURL) {
-            case '/zach-react-app':
+            case '/zach-react-app/':
                 return HOME
-            case '/about':
+            case '/about/':
                 return ABOUT
-            case '/passwordgenerator':
+            case '/passwordgenerator/':
                 return PASSWORD_GENERATOR
-            case '/nopage':
+            case '/nopage/':
             default:
                 return NO_PAGE
         }
@@ -160,28 +160,28 @@ const NavigationDrawerLeft = () => {
                 </DrawerHeader>
                 <Divider />
                 <List>
-                    <ListItemButton component={Link} to="/zach-react-app" onClick={() => setPage(HOME)}>
+                    <ListItemButton component={Link} to="/zach-react-app/" onClick={() => setPage(HOME)}>
                         <ListItemIcon>
                             <HomeIcon />
                         </ListItemIcon>
                         <ListItemText primary="Home" />
                     </ListItemButton>
                     <Divider />
-                    <ListItemButton component={Link} to="/about" onClick={() => setPage(ABOUT)}>
+                    <ListItemButton component={Link} to="/about/" onClick={() => setPage(ABOUT)}>
                         <ListItemIcon>
                             <InfoIcon />
                         </ListItemIcon>
                         <ListItemText primary="About" />
                     </ListItemButton>
                     <Divider />
-                    <ListItemButton component={Link} to="/passwordgenerator" onClick={() => setPage(PASSWORD_GENERATOR)}>
+                    <ListItemButton component={Link} to="/passwordgenerator/" onClick={() => setPage(PASSWORD_GENERATOR)}>
                         <ListItemIcon>
                             <LockIcon />
                         </ListItemIcon>
                         <ListItemText primary="Password Generator" />
                     </ListItemButton>
                     <Divider />
-                    <ListItemButton component={Link} to="/nopage" onClick={() => setPage(NO_PAGE)}>
+                    <ListItemButton component={Link} to="/nopage/" onClick={() => setPage(NO_PAGE)}>
                         <ListItemIcon>
                             <HelpIcon />
                         </ListItemIcon>
@@ -200,9 +200,9 @@ const NavigationDrawerLeft = () => {
 
 const RouteContent = () => (
     <Routes>
-        <Route exact path ="/zach-react-app" element={<Home />} />
-        <Route path ="/about" element={<About />} />
-        <Route path ="/passwordgenerator" element={<PasswordGen />} />
+        <Route exact path ="/zach-react-app/" element={<Home />} />
+        <Route path ="/about/" element={<About />} />
+        <Route path ="/passwordgenerator/" element={<PasswordGen />} />
         <Route path ="*" element={<NoPage />} />
     </Routes>
 )
