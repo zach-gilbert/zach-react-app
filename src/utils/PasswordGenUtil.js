@@ -17,7 +17,7 @@ function getWords(wordListData, numberOfWords) {
 
     // Iterate the number of words
     for (let i = 0; i < numberOfWords; i++) {
-        //TODO: Prevent the same line number from being generated subsequent times
+        // TODO: Prevent the same line number from being generated subsequent times
         // issue where it will sometimes still generate a maximum of two duplicate
         // numbers... https://codepen.io/finnhvman/pen/oPwXRa
         randomLine = getSecureRandomNumber(min, max) // Generates a random line number
@@ -109,12 +109,31 @@ function addSymbol(password) {
 }
 
 /**
+ * Ensures the words within the password are all lowercase as
+ * some of the words contained capitals inside wordlist.txt
+ *
+ * @param password the password object
+ * @returns {*}
+ */
+function makeLowerCase(password) {
+    for (let i = 0; i < password.length; i++) {
+        password[i] = password[i].toString().toLowerCase()
+    }
+    return password
+}
+
+/**
  * MAIN: generate password utility
  */
 export function generatePassword(wordList, numberOfWords, boolCapital, boolDigit, boolSymbol) {
     console.log("generatePassword() called")
 
+    //TODO: add a jumble checkbox/function to create a more randomized password if user wants it (ZANY)
+    //TODO: add word # select box
+
     let password = getWords(wordList, numberOfWords) // Fetches random words for the password
+
+    password = makeLowerCase(password) // Ensures password is lowercase (some words were capitalized inside wordlist.txt)
 
     if (boolCapital) {
         password = capitalizeWord(password) // Capitalize first word of the password
@@ -129,11 +148,10 @@ export function generatePassword(wordList, numberOfWords, boolCapital, boolDigit
     }
 
     /* Final processing for password */
-    password = password.toString()
-    password = password.replaceAll('\r', '')
-    password = password.replaceAll(',', '')
-
-
+    password = password
+        .toString()
+        .replaceAll('\r', '')
+        .replaceAll(',', '')
 
     return password
 }

@@ -1,13 +1,12 @@
 import * as React from 'react';
 import {generatePassword} from "../utils/PasswordGenUtil.js";
 import wordList from "../utils/wordlist.txt";
-import { Button, Checkbox, FormControlLabel, FormGroup, FormLabel, IconButton, TextField } from "@mui/material";
+import {Button, Checkbox, FormControlLabel, FormGroup, FormLabel, IconButton, TextField} from "@mui/material";
 import ContentCopyIcon from '@mui/icons-material/ContentCopy';
 import Tooltip from '@mui/material/Tooltip';
 
-class Password extends React.Component {
+class PasswordGen extends React.Component {
 
-    //TODO: add a drawer to project: https://mui.com/material-ui/react-drawer/
     constructor(props) {
         super(props);
         this.state = {
@@ -32,7 +31,7 @@ class Password extends React.Component {
      * called by: componentDidMount()
      */
     loadTotalWordList() {
-        if (this.state.totalWordList === null) {
+        if (this.state.totalWordList === null || this.state.totalWordList === undefined) {
             fetch(wordList).then((r) => r.text())
                 .then((wordListData) => {
                     this.setState({
@@ -57,13 +56,14 @@ class Password extends React.Component {
     selectWords() {
         let selectedWordsArr = generatePassword(this.state.totalWordList, 3,
             this.state.boolCapital, this.state.boolDigit, this.state.boolSymbol)
+
         this.setState({
             password: selectedWordsArr
         })
     }
 
     /**
-     * Render function for Password.js
+     * Render function for PasswordGen.js
      *
      * @returns {JSX.Element}
      */
@@ -73,7 +73,7 @@ class Password extends React.Component {
                 {/* Title */}
                 <h1>Password</h1>
 
-                {/* Password output */}
+                {/* PasswordGen output */}
                 {/* TODO: Increase minimum size of password, dynamically resize depending on length */}
                 <h2>Password = {this.state.password}</h2>
                 <TextField
@@ -85,7 +85,7 @@ class Password extends React.Component {
                 {/* Copy to clipboard icon button */}
                 <Tooltip title="Copy to clipboard">
                     <IconButton
-                        size='large'
+                        size="large"
                         onClick={() => {navigator.clipboard.writeText(this.state.password)}}>
                         {<ContentCopyIcon />}
                     </IconButton>
@@ -138,4 +138,4 @@ class Password extends React.Component {
     }
 }
 
-export default Password;
+export default PasswordGen;
