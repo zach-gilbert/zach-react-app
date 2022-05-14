@@ -3,9 +3,14 @@
 
 ### Table of contents
 
+* [Access](#access)
 * [About](#about)
 * [Install](#install)
 * [Usage](#usage)
+
+### Access
+- You may access the generator on GitHub Pages using the link below:
+- https://zach-gilbert.github.io/zach-react-app/
 
 ### About
 - Password generator designed to return an easy to remember password.

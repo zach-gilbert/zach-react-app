@@ -1065,6 +1065,7 @@ status
 normal
 Chinese
 ship
+emo
 solution
 stone
 slowly
@@ -1298,7 +1299,7 @@ hell
 dangerous
 remind
 moral
-United
+united
 category
 relatively
 victory
@@ -1382,6 +1383,7 @@ extra
 session
 danger
 welcome
+dog
 domestic
 lots
 literature
@@ -1417,6 +1419,7 @@ reading
 urban
 mental
 increasingly
+cat
 lunch
 educational
 somewhere
@@ -1495,6 +1498,7 @@ thanks
 fruit
 under
 expensive
+penguin
 yellow
 conclusion
 prime
@@ -2149,6 +2153,7 @@ symbol
 still
 tobasco
 maker
+moose
 mood
 accomplish
 emphasis
@@ -2493,6 +2498,7 @@ broken
 apple
 electric
 proceed
+rack
 track
 literary
 virus
@@ -2521,6 +2527,7 @@ spokesman
 retain
 latter
 incentive
+smack
 slave
 chemical
 translate
@@ -2716,6 +2723,7 @@ stress
 adapt
 Irish
 honey
+eat
 correspondent
 pale
 musician
@@ -2766,11 +2774,13 @@ slight
 math
 shade
 tail
+shack
 sustain
 mount
 obligation
 angle
 palm
+lamb
 differ
 custom
 store
