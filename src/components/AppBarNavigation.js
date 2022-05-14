@@ -15,7 +15,10 @@ import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
-import InboxIcon from '@mui/icons-material/MoveToInbox';
+import HomeIcon from '@mui/icons-material/Home';
+import LockIcon from '@mui/icons-material/Lock';
+import InfoIcon from '@mui/icons-material/Info';
+import HelpIcon from '@mui/icons-material/Help';
 import {Link, Route, Routes} from "react-router-dom";
 import Home from "./Home";
 import About from "./About";
@@ -159,28 +162,28 @@ const NavigationDrawerLeft = () => {
                 <List>
                     <ListItemButton component={Link} to="/" onClick={() => setPage(HOME)}>
                         <ListItemIcon>
-                            <InboxIcon />
+                            <HomeIcon />
                         </ListItemIcon>
                         <ListItemText primary="Home" />
                     </ListItemButton>
                     <Divider />
                     <ListItemButton component={Link} to="/about" onClick={() => setPage(ABOUT)}>
                         <ListItemIcon>
-                            <InboxIcon />
+                            <InfoIcon />
                         </ListItemIcon>
                         <ListItemText primary="About" />
                     </ListItemButton>
                     <Divider />
                     <ListItemButton component={Link} to="/passwordgenerator" onClick={() => setPage(PASSWORD_GENERATOR)}>
                         <ListItemIcon>
-                            <InboxIcon />
+                            <LockIcon />
                         </ListItemIcon>
                         <ListItemText primary="Password Generator" />
                     </ListItemButton>
                     <Divider />
                     <ListItemButton component={Link} to="/nopage" onClick={() => setPage(NO_PAGE)}>
                         <ListItemIcon>
-                            <InboxIcon />
+                            <HelpIcon />
                         </ListItemIcon>
                         <ListItemText primary="NoPage" />
                     </ListItemButton>

@@ -1,9 +1,19 @@
 import * as React from 'react';
 import {generatePassword} from "../utils/PasswordGenUtil.js";
 import wordList from "../utils/wordlist.txt";
-import {Button, Checkbox, FormControlLabel, FormGroup, FormLabel, IconButton, TextField} from "@mui/material";
+import {
+    Button,
+    Checkbox,
+    FormControl,
+    FormControlLabel,
+    FormGroup,
+    FormLabel,
+    IconButton, InputLabel, MenuItem, Select,
+    TextField
+} from "@mui/material";
 import ContentCopyIcon from '@mui/icons-material/ContentCopy';
 import Tooltip from '@mui/material/Tooltip';
+import Box from "@mui/material/Box";
 
 class PasswordGen extends React.Component {
 
@@ -15,6 +25,7 @@ class PasswordGen extends React.Component {
             boolCapital: false, // boolean to add capitals
             boolDigit: false, // boolean to add digits
             boolSymbol: false, // boolean to add symbols
+            numberOfWords: 2 // Number of words to generate
         }
         this.handleClick = this.handleClick.bind(this)
     }
@@ -41,9 +52,16 @@ class PasswordGen extends React.Component {
         }
     }
 
-    /** Onclick btn **/
+    /** Onclick btn for password generation **/
     handleClick() {
         this.selectWords()
+    }
+
+    /** Select menu change event handling **/
+    handleChange = (event) => {
+        this.setState({
+            numberOfWords: event.target.value
+        })
     }
 
     /**
@@ -54,7 +72,7 @@ class PasswordGen extends React.Component {
      * called by handeClick()
      */
     selectWords() {
-        let selectedWordsArr = generatePassword(this.state.totalWordList, 3,
+        let selectedWordsArr = generatePassword(this.state.totalWordList, this.state.numberOfWords,
             this.state.boolCapital, this.state.boolDigit, this.state.boolSymbol)
 
         this.setState({
@@ -124,6 +142,22 @@ class PasswordGen extends React.Component {
                             this.setState({boolSymbol: !this.state.boolSymbol})
                         }}
                     />
+                    <Box sx={{ minWidth: 120 }}>
+                        <FormControl fullWidth>
+                            <InputLabel id="select-label">Number of Words</InputLabel>
+                            <Select
+                                labelId="select-label"
+                                id="simple-select"
+                                value={this.state.numberOfWords}
+                                label="Number of Words"
+                                onChange={this.handleChange}
+                            >
+                                <MenuItem value={1}>One</MenuItem>
+                                <MenuItem value={2}>Two</MenuItem>
+                                <MenuItem value={3}>Three</MenuItem>
+                            </Select>
+                        </FormControl>
+                    </Box>
                 </FormGroup>
 
                 {/* Generate password button */}
