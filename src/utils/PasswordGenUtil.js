@@ -11,7 +11,7 @@ function getWords(wordListData, numberOfWords) {
     let randomLine = 1 // int of a line to be read
     let selectedNumbers = [] // Array of numbers already selected
     let min = 1 // minimum number of words in txt file
-    let max = 4661 // maximum number of words in txt file
+    let max = 4658 // maximum number of words in txt file
 
     wordListData = wordListData.split("\n") // Split the word by line
 

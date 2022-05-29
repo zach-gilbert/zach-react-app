@@ -2528,7 +2528,6 @@ retain
 latter
 incentive
 smack
-slave
 chemical
 translate
 accurate
@@ -3300,7 +3299,6 @@ unlike
 trunk
 rumor
 implementation
-swallow
 motivate
 render
 longtime
@@ -4305,7 +4303,6 @@ logical
 liberal
 socially
 parish
-slavery
 blank
 commodity
 cure
